@@ -24,7 +24,7 @@ main {
 
 h1 {
 	font-family: "Raleway", sans-serif;
-	color: #0D2C40;
+	color: #FFFFFF;
 	letter-spacing: 1px;
 	font-size: 45px;
 	font-weight: 400;
@@ -76,6 +76,7 @@ footer {
 	font-weight: 500px;
 }
 
+
 .copyright {
 	font-family: "Raleway", sans-serif;
 	float: left;
@@ -98,6 +99,13 @@ font-size: 0;
 .name {
 	color: #F15B31;
 	font-weight: 700;
+}
+
+#about-me {
+	font-family: "Raleway", sans-serif;
+	font-size: 15px;
+	margin-bottom: 30px;
+	padding: 0;
 }
 
 

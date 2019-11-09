@@ -1,31 +1,81 @@
 // console.log("Up and running!");
 
-var cards = ["queen", "queen", "king", "king"];
+var cards = [
+{
+	rank: "queen",
+	suit: "hearts",
+	cardImage: "images/queen-of-hearts.png",
+	},
+	{
+	rank: "queen",
+	suit: "diamonds",
+	cardImage: "images/queen-of-diamonds.png",
+	},
+	{
+	rank: "king",
+	suit: "hearts",
+	cardImage: "images/king-of-hearts.png",
+	},
+	{
+	rank: "king",
+	suit: "diamonds",
+	cardImage: "images/king-of-diamonds.png",
+	},
+];
 
 var cardsInPlay = [];
 
 function checkForMatch() {
 	if (cardsInPlay[0] === cardsInPlay[1]) {
-  	console.log("You found a match!");
+  	alert("You found a match!");
 	} else {
-  	console.log("Sorry, try again.");
-}
-}
-   //moving on but something here is causing it to come up twice
+  	alert("Sorry, try again.");
+	};
+};
+   
 function flipCard(cardId) {
-	console.log("User flipped " + cardId);
-	cardsInPlay.push(cardId);
+	var cardId = this.getAttribute('data-id');
+	//console.log("User flipped " + cards[cardId].rank);
+	cardsInPlay.push(cards[cardId].rank);
+	this.setAttribute('src' , cards[cardId].cardImage);
 
-checkForMatch();
+	if (cardsInPlay.length === 2){
+	checkForMatch();
+	};
+};
+
+console.log(cardsInPlay);
+
+function createBoard() {
+	const cardTable = document.getElementById('game-board');
+	for (var i = 0; i < cards.length; i++) {
+		var cardElement = document.createElement('img');
+		cardElement.setAttribute('src', 'images/back.png');
+		cardElement.setAttribute('data-id', i);
+		cardElement.addEventListener('click', flipCard);
+		cardTable.appendChild(cardElement);
+	}
+};
+
+/*
+function resetBoard() {
+	const reset = document.getElementById('reset-button');
+	reset.addEventListener('click', reload);
+	resetBoard();
+}
+*/
+
+createBoard();
+
+//checkForMatch();
 /*
 if (cardsInPlay[0] === cardsInPlay[1]) {
 	alert("You Found A Match!");
 } else {
 	alert("Sorry, try again.");
 }*/
-};
 
-flipCard(cards[0]);
-flipCard(cards[2]);
+
+
 //flipCard(cards[3]);
 //cardsInPlay.length;

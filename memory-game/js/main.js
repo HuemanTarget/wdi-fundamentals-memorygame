@@ -1,24 +1,31 @@
-console.log("Up and running!");
+// console.log("Up and running!");
 
 var cards = ["queen", "queen", "king", "king"];
 
 var cardsInPlay = [];
 
-var cardOne = cards[0];
-cardsInPlay.push(cardOne);
+function checkForMatch() {
+	if (cardsInPlay[0] === cardsInPlay[1]) {
+  	console.log("You found a match!");
+	} else {
+  	console.log("Sorry, try again.");
+}
+}
+   //moving on but something here is causing it to come up twice
+function flipCard(cardId) {
+	console.log("User flipped " + cardId);
+	cardsInPlay.push(cardId);
 
-console.log("User flipped " + cardOne);
-
-var cardTwo = cards[2];
-cardsInPlay.push(cardTwo);
-
-console.log("User flipped " + cardTwo);
-
-var cardThree = cards[1];
-cardsInPlay.push(cardThree);
-
+checkForMatch();
+/*
 if (cardsInPlay[0] === cardsInPlay[1]) {
 	alert("You Found A Match!");
 } else {
 	alert("Sorry, try again.");
-}
+}*/
+};
+
+flipCard(cards[0]);
+flipCard(cards[2]);
+//flipCard(cards[3]);
+//cardsInPlay.length;
